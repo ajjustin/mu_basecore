@@ -68,7 +68,7 @@ BdsDxeOnConnectConInCallBack (
   EFI_STATUS Status;
 
   // Inform platform of duties to perform before connecting consoles.   // MSCHANGE
-  PlatformBootManagerOnDemandConInConnect ();                           // MSCHANGE
+  //PlatformBootManagerOnDemandConInConnect ();                           // MSCHANGE
 
   //
   // When Osloader call ReadKeyStroke to signal this event
@@ -410,7 +410,7 @@ BootBootOptions (
     //
     EfiBootManagerBoot (&BootOptions[Index]);
 
-    PlatformBootManagerProcessBootCompletion (&BootOptions[Index]);        // MSCHANGE 00076 - record boot status
+    //PlatformBootManagerProcessBootCompletion (&BootOptions[Index]);        // MSCHANGE 00076 - record boot status
 
     //
     // If the boot via Boot#### returns with a status of EFI_SUCCESS, platform firmware
@@ -698,7 +698,7 @@ BdsEntry (
   PERF_CROSSMODULE_END("DXE");
   PERF_CROSSMODULE_BEGIN("BDS");
   DEBUG ((EFI_D_INFO, "[Bds] Entry...\n"));
-  PlatformBootManagerBdsEntry ();             // MSCHANGE 00076 - Signal start of BDS
+  //PlatformBootManagerBdsEntry ();             // MSCHANGE 00076 - Signal start of BDS
 
 
   //
@@ -1025,7 +1025,7 @@ BdsEntry (
 
     EfiBootManagerHotkeyBoot ();
 
-    PlatformBootManagerPriorityBoot (&BootNext);          // MSCHANGE 00076  Check for hard button boot selection
+    //PlatformBootManagerPriorityBoot (&BootNext);          // MSCHANGE 00076  Check for hard button boot selection
 
     if (BootNext != NULL) {
       //
@@ -1050,7 +1050,7 @@ BdsEntry (
       Status = EfiBootManagerVariableToLoadOption (BootNextVariableName, &LoadOption);
       if (!EFI_ERROR (Status)) {
         EfiBootManagerBoot (&LoadOption);
-        PlatformBootManagerProcessBootCompletion (&LoadOption);        // MSCHANGE 00076 - record boot status
+        //PlatformBootManagerProcessBootCompletion (&LoadOption);        // MSCHANGE 00076 - record boot status
         EfiBootManagerFreeLoadOption (&LoadOption);
         if ((LoadOption.Status == EFI_SUCCESS) &&
             (BootManagerMenuStatus != EFI_NOT_FOUND) &&
