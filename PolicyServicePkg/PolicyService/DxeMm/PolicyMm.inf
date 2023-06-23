@@ -14,9 +14,10 @@
   FILE_GUID                      = 9FF65AAD-5982-4609-9702-05EFD584148C
   MODULE_TYPE                    = MM_STANDALONE
   VERSION_STRING                 = 1.0
-  ENTRY_POINT                    = PolicyStandaloneEntry
+  ENTRY_POINT                    = PolicyStandaloneMmEntry
 
 [Sources]
+  PolicyStandaloneMm.c
   PolicyMm.c
   PolicyCommon.c
   PolicyCommon.h
