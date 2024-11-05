@@ -1,0 +1,34 @@
+[Defines]
+  FILE_GUID = 7f3d7c8c-3b7c-4f4a-9c3f-9b1f5a9f3f5e
+  MODULE_TYPE = HOST_APPLICATION
+  VERSION_STRING = 1.0
+  ENTRY_POINT = LogPerformanceMeasurement
+
+[Sources]
+  PerformanceLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  DebugLib
+  PcdLib
+  EdkiiPerformanceMeasurementLib
+
+[Protocols]
+  gEdkiiPerformanceMeasurementProtocolGuid
+
+[Copyright]
+  Copyright (C) Microsoft Corporation 
+  SPDX-License-Identifier: BSD-2-Clause-Patent. 
+
+[Description]
+  Performance Library
+
+  This library instance provides infrastructure for DXE phase drivers to log performance
+  data. It consumes PerformanceEx or Performance Protocol published by DxeCorePerformanceLib
+  to log performance data. If both PerformanceEx and Performance Protocol is not available, it does not log any
+  performance information.
+
+  Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.
